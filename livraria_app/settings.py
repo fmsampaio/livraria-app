@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%88p#ge-=f&03r4*@okm$0qfa(-l@z0il8@)n8thb&s9j@i8&y
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://livraria-app.herokuapp.com/',
+    'livraria-app.herokuapp.com',
 ]
 
 
