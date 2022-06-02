@@ -19,6 +19,10 @@ from main import views
 
 from rest_framework import routers
 
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Livraria API')
+
 router = routers.DefaultRouter()
 router.register(r'categorias', views.CategoriaViewSet)
 router.register(r'editoras', views.EditoraViewSet)
@@ -27,5 +31,6 @@ router.register(r'autores', views.AutorViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/swagger/', schema_view),
 ]
