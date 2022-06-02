@@ -1,1 +1,1 @@
-web : gunicorn livraria_app.wsgi
+web : gunicorn livraria-app.wsgi
