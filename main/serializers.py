@@ -37,7 +37,7 @@ class LivroSerializer(ModelSerializer):
 
 class LivroDetailSerializer(ModelSerializer):
     categoria = CharField(source='categoria.descricao')
-    editora = EditoraNestedSerializer()
+    editora = CharField(source='editora.nome')
     autores = SerializerMethodField()
 
     class Meta:
