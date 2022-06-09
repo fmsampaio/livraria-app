@@ -1,4 +1,4 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 
@@ -6,7 +6,7 @@ from main.serializers import LivroSerializer, LivroDetailSerializer
 from main.models import Livro
 
 
-class LivroViewSet(ReadOnlyModelViewSet):
+class LivroViewSet(ModelViewSet):
     queryset = Livro.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['ISBN', 'editora', 'categoria']
