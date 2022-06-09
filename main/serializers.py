@@ -16,13 +16,6 @@ class EditoraSerializer(ModelSerializer):
         model = Editora
         fields = '__all__'
 
-
-class EditoraNestedSerializer(ModelSerializer):
-    class Meta:
-        model = Editora
-        fields = ['nome']
-
-
 class AutorSerializer(ModelSerializer):
     class Meta:
         model = Autor
