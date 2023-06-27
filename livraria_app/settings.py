@@ -97,7 +97,7 @@ if IS_HEROKU_APP:
                 conn_max_age=600,
                 conn_health_checks=True,
                 ssl_require=True,
-                default='postgres://postgresql-depp-93006'
+                default='postgresql://postgresql-deep-93006'
             )
     }
 else:
