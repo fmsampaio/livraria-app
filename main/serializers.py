@@ -29,8 +29,9 @@ class LivroSerializer(ModelSerializer):
 
 
 class LivroDetailSerializer(ModelSerializer):
-    categoria = CharField(source='categoria.descricao')
-    editora = CharField(source='editora.nome')
+    categoria = SerializerMethodField()
+    #editora = CharField(source='editora.nome')
+    editora = SerializerMethodField()
     autores = SerializerMethodField()
 
     class Meta:
@@ -42,5 +43,22 @@ class LivroDetailSerializer(ModelSerializer):
         nomes_autores = []
         autores = instance.autores.get_queryset()
         for autor in autores:
-            nomes_autores.append(autor.nome)
+            nomes_autores.append(
+                {
+                    "id" : autor.id,
+                    "nome" : autor.nome
+                }
+            )
         return nomes_autores
+    
+    def get_editora(self, instance):
+        return { 
+            "id" : instance.editora.id,
+            "nome" : instance.editora.nome
+        }
+    
+    def get_categoria(self, instance):
+        return {
+            "id" : instance.categoria.id,
+            "nome" : instance.categoria.descricao
+        }
