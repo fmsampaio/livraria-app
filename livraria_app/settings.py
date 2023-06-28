@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
     'livraria-app.herokuapp.com',
     'localhost',
 ]
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework_swagger',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'livraria_app.urls'
