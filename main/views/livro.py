@@ -12,6 +12,9 @@ class LivroViewSet(ModelViewSet):
     filterset_fields = ['ISBN', 'editora', 'categoria']
     search_fields = ['titulo']
 
+    def get_queryset(self):
+        return super().get_queryset().filter(usuario=self.request.user.id)
+
     def get_serializer_class(self):
         if self.action == 'list':
             return LivroDetailSerializer

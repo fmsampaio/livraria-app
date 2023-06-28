@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, CharField
+from rest_framework.serializers import ModelSerializer, CharField, HiddenField
 from rest_framework.serializers import SerializerMethodField
 from rest_framework import serializers
 
@@ -23,6 +23,7 @@ class AutorSerializer(ModelSerializer):
 
 
 class LivroSerializer(ModelSerializer):
+    usuario = HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Livro
         fields = '__all__'
@@ -36,7 +37,8 @@ class LivroDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Livro
-        fields = '__all__'
+        #fields = '__all__'
+        fields = ['id','ISBN','categoria','preco','quantidade','autores','editora']
         depth = 1
 
     def get_autores(self, instance):
