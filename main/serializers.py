@@ -38,7 +38,7 @@ class LivroDetailSerializer(ModelSerializer):
     class Meta:
         model = Livro
         #fields = '__all__'
-        fields = ['id','ISBN','categoria','preco','quantidade','autores','editora']
+        fields = ['id','titulo','ISBN','categoria','preco','quantidade','autores','editora']
         depth = 1
 
     def get_autores(self, instance):
